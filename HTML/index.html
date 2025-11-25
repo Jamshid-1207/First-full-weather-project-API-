@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <link rel="stylesheet" href="../Style/index.css" />
+    <script defer src="../Java-Script/index.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="header__section">
+          <h2 class="header__title">Weather cloud</h2>
+          <input
+            id="input__city"
+            class="input__city"
+            type="text"
+            placeholder="city" /><button id="get_city" class="get__city">
+            Search
+          </button>
+        </div>
+      </header>
+      <div class="card__section">
+        <div class="card">
+          <div class="card__title">
+            <h2 id="city" class="city">City</h2>
+            <span id="republic" class="republic">Rep</span>
+          </div>
+          <div class="card__body">
+            <div class="gradus__title">
+              <h1 id="gradus__text">--</h1>
+              <span>&deg;C</span>
+              <p id="card__subtitle"></p>
+            </div>
+            <div>
+              <img
+                id="card__icon"
+                class="card__img"
+                src="../3d weather icons/sun/26.png"
+                alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="card__background"></div>
+      </div>
+      <footer class="footer__section"></footer>
+    </div>
+  </body>
+</html>
