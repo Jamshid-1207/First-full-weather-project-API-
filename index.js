@@ -9,10 +9,14 @@ const iconCard = document.getElementById("card__icon");
 
 const API_KEY = "64f595a7575dbbd9de292a922a968128";
 
+// --------------------------------------------------
+// Функция обновления UI
+// --------------------------------------------------
 function updateUI(data) {
-  cityCard.textContent = data.name;
-  republicCard.textContent = data.sys.country;
+  if (!data || !data.main || !data.weather) return;
 
+  cityCard.textContent = data.name || "—";
+  republicCard.textContent = data.sys?.country || "—";
   gradusCard.textContent = Math.round(data.main.temp);
   subtitleCard.textContent = data.weather[0].description;
 
@@ -20,53 +24,60 @@ function updateUI(data) {
 
   switch (icons) {
     case "01d":
-      iconCard.src = "../3d weather icons/sun/26.png";
+      iconCard.src = "./3d weather icons/sun/26.png";
       break;
     case "01n":
-      iconCard.src = "../3d weather icons/moon/10.png";
+      iconCard.src = "./3d weather icons/moon/10.png";
       break;
     case "02d":
-      iconCard.src = "../3d weather icons/sun/6.png";
+      iconCard.src = "./3d weather icons/sun/6.png";
       break;
     case "02n":
-      iconCard.src = "../3d weather icons/moon/9.png";
+      iconCard.src = "./3d weather icons/moon/9.png";
       break;
     case "03d":
-      iconCard.src = "../3d weather icons/sun/27.png";
+      iconCard.src = "./3d weather icons/sun/27.png";
       break;
     case "03n":
-      iconCard.src = "../3d weather icons/moon/15.png";
+      iconCard.src = "./3d weather icons/moon/15.png";
       break;
     case "04d":
-      iconCard.src = "../3d weather icons/sun/4.png";
+      iconCard.src = "./3d weather icons/sun/4.png";
       break;
     case "04n":
-      iconCard.src = "../3d weather icons/moon/15.png";
+      iconCard.src = "./3d weather icons/moon/15.png";
       break;
     case "09d":
-      iconCard.src = "../3d weather icons/sun/8.png";
+      iconCard.src = "./3d weather icons/sun/8.png";
       break;
     case "09n":
-      iconCard.src = "../3d weather icons/moon/2.1.png";
+      iconCard.src = "./3d weather icons/moon/2.1.png";
       break;
     case "10d":
-      iconCard.src = "../3d weather icons/sun/13.png";
+      iconCard.src = "./3d weather icons/sun/13.png";
       break;
     case "10n":
-      iconCard.src = "../3d weather icons/moon/1.png";
+      iconCard.src = "./3d weather icons/moon/1.png";
       break;
     case "11d":
-      iconCard.src = "../3d weather icons/sun/16.png";
+      iconCard.src = "./3d weather icons/sun/16.png";
       break;
     case "11n":
-      iconCard.src = "../3d weather icons/rain/39.png";
+      iconCard.src = "./3d weather icons/rain/39.png";
       break;
-      iconCard.src = "../3d weather icons/cloud/18.png";
+    case "13d":
+    case "13n":
+      iconCard.src = "./3d weather icons/cloud/18.png";
       break;
     default:
+      iconCard.src = "./3d weather icons/cloud/18.png";
       break;
   }
 }
+
+// --------------------------------------------------
+// Функция получения погоды по координатам
+// --------------------------------------------------
 function getWeatherByCoords(lat, lon) {
   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=ru`;
 
@@ -81,6 +92,9 @@ function getWeatherByCoords(lat, lon) {
     );
 }
 
+// --------------------------------------------------
+// Поиск погоды по названию города
+// --------------------------------------------------
 btnCity.addEventListener("click", () => {
   const cityName = inputCity.value.trim();
   if (!cityName) {
@@ -100,9 +114,7 @@ btnCity.addEventListener("click", () => {
       updateUI(data);
       inputCity.value = "";
     })
-    .catch((err) => {
-      console.log("Ошибка:", err);
-    });
+    .catch((err) => console.log("Ошибка при поиске города:", err));
 });
 
 window.addEventListener("load", () => {
@@ -114,7 +126,7 @@ window.addEventListener("load", () => {
         getWeatherByCoords(lat, lon);
       },
       (err) => {
-        console.log("Геолокация отключена:", err);
+        console.log("Геолокация отключена:", err.message);
       }
     );
   } else {
