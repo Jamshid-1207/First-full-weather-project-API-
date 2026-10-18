@@ -24,53 +24,53 @@ function updateUI(data) {
 
   switch (icons) {
     case "01d":
-      iconCard.src = "./3d weather icons/sun/26.png";
+      iconCard.src = "./3d weather icons/sun/26.webp";
       break;
     case "01n":
-      iconCard.src = "./3d weather icons/moon/10.png";
+      iconCard.src = "./3d weather icons/moon/10.webp";
       break;
     case "02d":
-      iconCard.src = "./3d weather icons/sun/6.png";
+      iconCard.src = "./3d weather icons/sun/6.webp";
       break;
     case "02n":
-      iconCard.src = "./3d weather icons/moon/9.png";
+      iconCard.src = "./3d weather icons/moon/9.webp";
       break;
     case "03d":
-      iconCard.src = "./3d weather icons/sun/27.png";
+      iconCard.src = "./3d weather icons/sun/27.webp";
       break;
     case "03n":
-      iconCard.src = "./3d weather icons/moon/15.png";
+      iconCard.src = "./3d weather icons/moon/15.webp";
       break;
     case "04d":
-      iconCard.src = "./3d weather icons/sun/4.png";
+      iconCard.src = "./3d weather icons/sun/4.webp";
       break;
     case "04n":
-      iconCard.src = "./3d weather icons/moon/15.png";
+      iconCard.src = "./3d weather icons/moon/15.webp";
       break;
     case "09d":
-      iconCard.src = "./3d weather icons/sun/8.png";
+      iconCard.src = "./3d weather icons/sun/8.webp";
       break;
     case "09n":
-      iconCard.src = "./3d weather icons/moon/2.1.png";
+      iconCard.src = "./3d weather icons/moon/2.1.webp";
       break;
     case "10d":
-      iconCard.src = "./3d weather icons/sun/13.png";
+      iconCard.src = "./3d weather icons/sun/13.webp";
       break;
     case "10n":
-      iconCard.src = "./3d weather icons/moon/1.png";
+      iconCard.src = "./3d weather icons/moon/1.webp";
       break;
     case "11d":
-      iconCard.src = "./3d weather icons/sun/16.png";
+      iconCard.src = "./3d weather icons/sun/16.webp";
       break;
     case "11n":
-      iconCard.src = "./3d weather icons/rain/39.png";
+      iconCard.src = "./3d weather icons/rain/39.webp";
       break;
     case "13d":
     case "13n":
-      iconCard.src = "./3d weather icons/cloud/18.png";
+      iconCard.src = "./3d weather icons/cloud/18.webp";
       break;
     default:
-      iconCard.src = "./3d weather icons/cloud/18.png";
+      iconCard.src = "./3d weather icons/cloud/18.webp";
       break;
   }
 }
